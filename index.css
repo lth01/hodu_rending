@@ -1,0 +1,495 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+button{
+    outline: none;
+    border: none;
+    background-color: inherit;
+}
+/* reset css end */
+
+/* hodu css start */
+
+/* font import */
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('./font/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('./font/Pretendard-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('./font/Pretendard-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('./font/Pretendard-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('./font/Pretendard-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('./font/Pretendard-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('./font/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('./font/Pretendard-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('./font/Pretendard-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+*{
+    font-family: Pretendard;
+}
+
+html,
+body{
+    width: 100%;
+    height: 100%;
+}
+
+/* width를 통일하여 관리하기 위한 class */
+.frame{
+    width: 1280px;
+}
+
+.frame-flex-sb{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    color: black;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+    word-wrap: break-word
+}
+
+body > header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+article{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > div > .interact{
+    width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header > div > .interact > .interact-lMenu{
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.btn_download{
+    padding: 15px 30px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    word-wrap: break-word;
+    background-color: #D97652;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.introduce{
+    background-color: #F2E9D8;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.introduce > div{
+    display: flex;
+    align-items: center;
+}
+
+.introduce-l{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 40px;
+    width: 600px;
+}
+
+.introduce-l > h3{
+    width: 400px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    word-wrap: break-word
+}
+
+
+.introduce-l > button{
+    width: 140px;
+}
+
+.introduce-r{
+    padding-top: 136px;
+}
+
+.introduce-r > img{
+    width: 415px;
+    height: 890px;
+    margin-bottom: -129px;
+}
+
+.main-section{
+    padding-top: 80px;
+    background-color: #fff;
+}
+
+.section-head-l{
+    flex-shrink: 0;
+    width: 660px;
+    height:  390px;
+}
+
+.section-head-l > img{
+    width: 100%;
+    height: 390px;
+    border-radius: 30px;
+}
+
+
+.section-head-r{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 30px;
+    margin-left: 110px;
+}
+
+.section-head-r > h2{
+    color: black;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 45px;
+    word-wrap: break-word 
+}
+
+.section-head-r > h3{
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    word-wrap: break-word
+}
+
+.main-section-showmore{
+    margin-top: 120px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+header.showmore > h2{
+    color: #D97652;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+header.showmore > h3{
+    margin-top: 40px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+header.showmore > h3 > strong{
+    color: #D97652;
+    font-weight: 700;
+}
+
+ul.showmore{
+    margin-top: 88px;
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, 378px);
+    gap: 72px;
+}
+
+ul.showmore > li{
+    width: 378px;
+    height: 378px;
+    background-color: brown;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+footer.showmore{
+    margin-top: 100px;
+}
+
+footer.showmore > h3{
+    color: black;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    word-wrap: break-word;
+}
+
+footer.showmore > #btn-morehodu{
+    margin-top: 28px;
+    padding: 15px 29px;
+    background-color: #D97652;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.main-section-showmore > hr{
+    margin-top: 80px;
+}
+
+.main-section-hoduhouse{
+    position: relative;
+    padding-bottom: 150px;
+}
+
+.main-section-hoduhouse > .frame > h2{
+    margin-top: 68px;
+    color: black;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 45px;
+    word-wrap: break-word;
+}
+
+.main-section-hoduhouse > .frame > h3{
+    margin-top: 20px;
+    color: #606367;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    word-wrap: break-word;
+}
+
+.main-section-hoduhouse > .frame > #hoduhouse-map{
+    margin-top: 40px;
+    width: 100%;
+    height: 560px;
+    background-color: #000;
+}
+
+.hoduhouse-subscribe{
+    position: absolute;
+    bottom: -140px;
+    background-color: #263140;
+    border-radius: 30px;
+}
+
+.hoduhouse-subscribe > div{
+    padding: 58px 50px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hoduhouse-subscribe > div > .nav-subscribe-l > h2{
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 45px;
+    word-wrap: break-word;
+}
+
+.hoduhouse-subscribe > div > .nav-subscribe-l > h3{
+    margin-top: 18px;
+    color: #F2E9D8;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    word-wrap: break-word
+}
+
+.nav-subscribe-r > .email-wrap{
+    width: 530px;
+    padding: 5px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 60px;
+}
+
+.nav-subscribe-r > .email-wrap > .email-intput{
+    padding-left: 22px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+}
+
+.nav-subscribe-r > .email-wrap > .email-intput > #tBx_email{
+    width: 70%;
+    outline: none;
+    border: none;
+    color: #767676;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    word-wrap: break-word
+}
+
+.nav-subscribe-r > .email-wrap > #btn_subscribe{
+    padding: 15px 29px;
+    background-color: #D97652;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    word-wrap: break-word;
+    border-radius: 40px;
+}
+
+.main-section-footerarticle{
+    height: 340px;
+}
+
+.main-section-footerarticle > div{
+    width: 100%;
+}
+
+.main-section-footerarticle > div > img{
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+}
+
+body > footer{
+    padding: 45px 320px;
+}
+
+body > footer > .frame{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+body > footer > .frame > .family-sites{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+body > footer > .frame > .family-sites > button{
+    padding: 9px;
+    border-radius: 50%;
+    background-color: #F29D52;
+}
+
