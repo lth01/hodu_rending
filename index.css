@@ -350,7 +350,7 @@ footer.showmore > h3{
     word-wrap: break-word;
 }
 
-footer.showmore > #btn-morehodu{
+footer.showmore > #btn_morehodu{
     margin-top: 28px;
     padding: 15px 29px;
     background-color: #D97652;
@@ -361,15 +361,15 @@ footer.showmore > #btn-morehodu{
     line-height: 20px;
 }
 
-footer.showmore > #btn-morehodu > .loader{
+footer.showmore > #btn_morehodu > .loader{
     display: none;
 }
 
-footer.showmore > #btn-morehodu.loading > span:first-child{
+footer.showmore > #btn_morehodu.loading > span:first-child{
     display: none;
 }
 
-footer.showmore > #btn-morehodu.loading > .loader
+footer.showmore > #btn_morehodu.loading > .loader
 {
     width: 24px;
     height: 24px;
@@ -381,7 +381,7 @@ footer.showmore > #btn-morehodu.loading > .loader
     animation: rotation 1s linear infinite;
 }
 
-footer.showmore > #btn-morehodu.loading{
+footer.showmore > #btn_morehodu.loading{
     color: #D97652;
 }
 

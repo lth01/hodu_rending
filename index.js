@@ -4,14 +4,16 @@ window.onload = function(){
     // 기본 이미지 로딩
     fetchImages(6);
 
-
+    loadMap();
 
     //이벤트 바인딩
-    document.getElementById('btn-morehodu').addEventListener('click',() =>{fetchImages()});
+    document.getElementById('btn_morehodu').addEventListener('click', () =>{fetchImages()});
+
+    document.getElementById('btn_subscribe').addEventListener('click', openSubModal)
 }
 
 async function fetchImages(count = 3, callback = appendImages){
-    const btn_morehodu = document.getElementById('btn-morehodu');
+    const btn_morehodu = document.getElementById('btn_morehodu');
     if(fetchTick) return ;
     try{
         fetchTick = true;
@@ -37,7 +39,7 @@ async function fetchImages(count = 3, callback = appendImages){
 }
 
 function appendImages(datas){
-    const btn_morehodu = document.getElementById('btn-morehodu');
+    const btn_morehodu = document.getElementById('btn_morehodu');
     const ulEl = document.querySelector('ul.showmore');
 
     datas.forEach(data => {
@@ -51,4 +53,42 @@ function appendImages(datas){
 
     btn_morehodu.classList.remove('loading');
 
+}
+
+function loadMap(){
+    const mapEl = document.getElementById('hoduhouse-map');
+    const opt = {
+        center: new kakao.maps.LatLng(33.4423379727783, 126.571449734542 ), //지도의 중심좌표.
+        level: 4 //지도의 레벨(확대, 축소 정도)
+    };
+    const map = new kakao.maps.Map(mapEl, opt);
+    const marker = new kakao.maps.Marker({
+        position: opt.center
+    });
+
+    marker.setMap(map);
+}
+
+function openSubModal(){
+    // 이미 모달창이 있을경우 열릴 필요 x
+    if(document.querySelector('.modal-wrap')) return ;
+    //호환성
+    if("content" in document.createElement("template")){
+        // template 코드 clone
+        const template = document.getElementById('hodu-modal');
+        const modalFrag = template.content.cloneNode(true);
+        const modalWrap = modalFrag.querySelector('.modal-wrap');
+
+        // 이벤트 바인딩
+        modalFrag.getElementById('btn_modalClose').addEventListener('click', closeModal);
+
+        //body에 추가
+        document.body.appendChild(modalWrap);
+    }
+}
+
+function closeModal(){
+    document.querySelectorAll('.modal-wrap').forEach(el =>{
+        el.remove();
+    });
 }
