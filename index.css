@@ -131,6 +131,10 @@ body{
     height: 100%;
 }
 
+button{
+    cursor: pointer;
+}
+
 /* width를 통일하여 관리하기 위한 class */
 .frame{
     width: 1280px;
