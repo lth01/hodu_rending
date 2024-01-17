@@ -14,12 +14,12 @@
             </div>
             <div class="interact">
                 <div class="interact-lMenu">
-                    <button>Home</button>
-                    <button>About</button>
-                    <button>Support</button>
+                    <button id="btn_home"><span>Home</span></button>
+                    <button id="btn_about"><span>About</span></button>
+                    <button id="btn_support"><span>Support</span></button>
                 </div>
                 <div class="interact-rMenu">
-                   <button class="btn_download">Download</button> 
+                   <button class="btn_download"><span>Download</span></button> 
                 </div>
             </div>
         </div>
@@ -33,9 +33,7 @@
                     </h1>
                     <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut eveniet libero dolorum, minus corporis aperiam, voluptas nulla animi error repellendus? Quo corrupti ab voluptatem blanditiis. Cum odit quibusdam facere.
                     Quis, cupiditate vel, incidunt id architecto animi quod dolorem, nam ullam similique libero? Aspernatur architecto perspiciatis quaerat debitis. Dolores possimus aut unde in quos eveniet quidem reiciendis, est laudantium nobis.</h3>
-                    <button class="btn_download">
-                        Download
-                    </button>
+                    <button class="btn_download"><span>Download</span></button>
                 </aside>
                 <aside class="introduce-r">
                     <img src="./img/introduce-hodu.png" alt="소개섹션_호두이미지">
@@ -73,7 +71,7 @@
                     </ul>
                     <footer class="showmore">
                         <h3>Continue exploring HODU</h3>
-                        <button id="btn_morehodu"><span>Show more</span><span class="loader"></span></button>
+                        <button id="btn_morehodu"><span>Show more</span></button>
                     </footer>
                </div>
                 <hr class="frame"/>
@@ -98,9 +96,7 @@
                                     <img src="./img/icon-mail.svg" alt="메일_아이콘">   
                                     <input type="email" id="tBx_email" placeholder="Enter your e-mail address"/>
                                 </div>
-                                <div id="btn_subscribe">
-                                    subscribe
-                                </div>
+                                <button id="btn_subscribe"><span>subscribe</span></button>
                             </div>
                         </aside>
                     </div>
@@ -116,7 +112,7 @@
     <footer>
         <div class="frame">
             <div class="logo">
-                <img src="./img/Logo-fin.svg" widt="226px;" alt="호두페이지_로고">
+                <img src="./img/Logo-fin.svg" width="226px;" alt="호두페이지_로고">
             </div>           
             <div class="family-sites">
                <button class="blog">
@@ -133,7 +129,11 @@
                </button> 
             </div>
         </div>
+        <!-- 페지 상단 이동은 푸터에 있도록-->
     </footer>
+    <nav class="nav-rightaside">
+        <button id="btn_arrowUp"></button>
+    </nav>
 </body>
 
 <template id="hodu-modal">
@@ -142,11 +142,11 @@
             <img src="./img/modal-hoduface.png" width="112px" alt="모달창_호두얼굴">
             <h2>Thank You!</h2>
             <h3>Lorem Ipsum is simply dummy text of the printing industry.</h3>
-            <button id="btn_modalClose">OK! I Love HODU</button>
+            <button id="btn_modalClose"><span>OK! I Love HODU</span></button>
         </section>
     </div>
 </template>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b9df5df06f8cf70d99ecd5ef1e8fbad"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
 <script src="./index.js"></script>
 </html>
