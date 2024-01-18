@@ -3,26 +3,23 @@ const btn_LoadingClass = "loading";
 const span_LoadingClass = "loader";
 
 window.onload = function(){
-    const mqr = window.matchMedia('(max-width: 390px)');
-    mqr.addEventListener('change',(e) =>{
-       e.matches ? InitMobileScreen() : InitPcScreen();
-    });
-
+    // 공통버튼
     const btn_morehodu = document.getElementById('btn_morehodu');
     const btn_subscribe = document.getElementById('btn_subscribe');
     const btn_arrowUp = document.getElementById('btn_arrowUp');
-
     // header 기능 미개발 버튼
-    const btns_interactLMenu = document.querySelectorAll('.interact-lMenu > button, .mobile > .frame .footer-rside button');
-
+    const btns_interactLMenu = document.querySelectorAll('.interact-lMenu > button, .mobile > .frame .footer-rside button, .accordian-menus > button:not(:last-child)');
     // footer 기능 미개발 버튼
     const btns_familySites = document.querySelectorAll('.family-sites > button');
-
     const btns_download = document.querySelectorAll('.btn_download') || [];
     const logos = document.querySelectorAll('.logo');
 
+    //모바일 아코디언
+    const btn_hambuger = document.querySelector('.hambuger');
+    const btn_closeAccordian = document.getElementById('btn_closeAcc');
+
     // 기본 이미지 로딩
-   appendImages(6);
+    appendImages(6);
 
     loadMap();
 
@@ -56,6 +53,12 @@ window.onload = function(){
             alert('아직 준비중인 메뉴에요! 나중을 기대해주세요 :)');
         });
     });
+
+    // 모바일 아코디언 열기 이벤트 바인딩
+    btn_hambuger?.addEventListener('click', openMobAccordian);
+    // 모바일 아코디언 닫기 이벤트 바인딩
+    btn_closeAccordian?.addEventListener('click', closeMobAccoridan);
+
 }
 
 function bindScrollArrowUpEvent(el = document.querySelector('.main-section-footerarticle'), callback){
@@ -152,7 +155,7 @@ function openSubModal(){
         const modalWrap = modalFrag.querySelector('.modal-wrap');
 
         // 이벤트 바인딩
-        modalFrag.getElementById('btn_modalClose').addEventListener('click', closeModal);
+        modalFrag.getElementById('btn_modalClose')?.addEventListener('click', closeModal);
 
         //body에 추가
         document.body.appendChild(modalWrap);
@@ -162,6 +165,24 @@ function openSubModal(){
 function closeModal(){
     document.querySelectorAll('.modal-wrap').forEach(el =>{
         el.remove();
+    });
+}
+
+function openMobAccordian(){
+    const accWrap = document.querySelector('.accordian-wrap');
+
+    requestAnimationFrame(()=>{
+        accWrap.style.width = '270px';
+        accWrap.style.padding = '22px 20px';
+    });
+}
+
+function closeMobAccoridan(){
+    const accWrap = document.querySelector('.accordian-wrap');
+
+    requestAnimationFrame(()=>{
+        accWrap.style.width = '0px';
+        accWrap.style.padding = '22px 0';
     });
 }
 
@@ -200,12 +221,4 @@ function removeProgCssBtn(btnEl){
    const loadSpan = btnEl.querySelector(`.${span_LoadingClass}`);
    btnEl.classList.remove(btn_LoadingClass);
    btnEl.removeChild(loadSpan);
-}
-
-function InitPcScreen(){
-    console.log('hi pc');
-}
-
-function InitMobileScreen(){
-    console.log('hi mobile');
 }

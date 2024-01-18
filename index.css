@@ -869,6 +869,39 @@ body > footer > .frame .family-sites > button{
         flex-direction: column;
         justify-content: space-between;
     }
+
+    .accordian-wrap{
+        position: fixed;
+        width: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+        background-color: #263140;
+        z-index: 10;
+        transition: 0.3s ease-in-out;
+        transition-property: width, padding-left, padding-right;
+    }
+
+    .accordian-wrap.mobile > .accordian-menus{
+        margin-top: 66px;
+        padding: 0 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 20px;
+    }
+
+    .accordian-wrap.mobile > .accordian-menus > button:last-child{
+        margin-top: 20px;
+    }
+
+    .accordian-menus > button{
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+    }
 }
 
 @media (min-width: 391.01px){
