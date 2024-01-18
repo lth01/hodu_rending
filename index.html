@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <header>
+    <header class="pc">
         <div class="frame">
             <div class="logo">
                 <img src="./img/Logo-fin.svg" alt="호두페이지_로고">
             </div>
             <div class="interact">
                 <div class="interact-lMenu">
-                    <button id="btn_home"><span>Home</span></button>
-                    <button id="btn_about"><span>About</span></button>
-                    <button id="btn_support"><span>Support</span></button>
+                    <button class="btn_home"><span>Home</span></button>
+                    <button class="btn_about"><span>About</span></button>
+                    <button class="btn_support"><span>Support</span></button>
                 </div>
                 <div class="interact-rMenu">
                    <button class="btn_download"><span>Download</span></button> 
@@ -24,6 +24,21 @@
             </div>
         </div>
     </header>
+
+    <header class="mobile">
+        <div class="frame">
+            <div class="logo">
+                <img src="./img/Logo-fin.svg" alt="호두페이지_로고">
+            </div>
+            <div class="hambuger">
+                <img src="./img/icon-hambuger.svg" alt="호두페이지_모바일">
+            </div>
+        </div>
+    </header>
+
+    
+    
+    
     <main>
         <section class="introduce">
             <div class="frame frame-flex-sb">
@@ -96,8 +111,8 @@
                                     <img src="./img/icon-mail.svg" alt="메일_아이콘">   
                                     <input type="email" id="tBx_email" placeholder="Enter your e-mail address"/>
                                 </div>
-                                <button id="btn_subscribe"><span>subscribe</span></button>
                             </div>
+                            <button id="btn_subscribe"><span>subscribe</span></button>
                         </aside>
                     </div>
                </nav>
@@ -109,7 +124,7 @@
            </article> 
         </section>
     </main>
-    <footer>
+    <footer class="pc">
         <div class="frame">
             <div class="logo">
                 <img src="./img/Logo-fin.svg" width="226px;" alt="호두페이지_로고">
@@ -131,7 +146,37 @@
         </div>
         <!-- 페지 상단 이동은 푸터에 있도록-->
     </footer>
-    <nav class="nav-rightaside">
+
+    <footer class="mobile">
+        <div class="frame">
+            <div class="footer-lside">
+                <div class="logo">
+                    <img src="./img/Logo-fin.svg" width="112px;" alt="호두페이지_로고">
+                </div>           
+                <div class="family-sites">
+                    <button class="blog">
+                            <img src="./img/icon-blog.png" alt="블로그아이콘">
+                    </button>
+                    <button class="insta">
+                            <img src="./img/icon-instagram.png" alt="인스타아이콘">
+                    </button>
+                    <button class="facebook">
+                            <img src="./img/icon-facebook.png" alt="페이스북아이콘">
+                    </button>
+                    <button class="youtube">
+                            <img src="./img/icon-youtube.png" alt="유튜브아이콘">
+                    </button> 
+                </div>
+            </div>
+            <div class="footer-rside">
+                    <button class="btn_home"><span>Home</span></button>
+                    <button class="btn_about"><span>About</span></button>
+                    <button class="btn_support"><span>Support</span></button>
+                    <button class="btn_policy"><span>Terms of Use</span></button>
+            </div>
+        </div>
+    </footer>
+    <nav class="nav-rightaside pc">
         <button id="btn_arrowUp"></button>
     </nav>
 </body>
@@ -147,6 +192,6 @@
     </div>
 </template>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b9df5df06f8cf70d99ecd5ef1e8fbad"></script>
 <script src="./index.js"></script>
 </html>

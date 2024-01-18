@@ -3,12 +3,17 @@ const btn_LoadingClass = "loading";
 const span_LoadingClass = "loader";
 
 window.onload = function(){
+    const mqr = window.matchMedia('(max-width: 390px)');
+    mqr.addEventListener('change',(e) =>{
+       e.matches ? InitMobileScreen() : InitPcScreen();
+    });
+
     const btn_morehodu = document.getElementById('btn_morehodu');
     const btn_subscribe = document.getElementById('btn_subscribe');
     const btn_arrowUp = document.getElementById('btn_arrowUp');
 
     // header 기능 미개발 버튼
-    const btns_interactLMenu = document.querySelectorAll('.interact > .interact-lMenu > button');
+    const btns_interactLMenu = document.querySelectorAll('.interact-lMenu > button, .mobile > .frame .footer-rside button');
 
     // footer 기능 미개발 버튼
     const btns_familySites = document.querySelectorAll('.family-sites > button');
@@ -195,4 +200,12 @@ function removeProgCssBtn(btnEl){
    const loadSpan = btnEl.querySelector(`.${span_LoadingClass}`);
    btnEl.classList.remove(btn_LoadingClass);
    btnEl.removeChild(loadSpan);
+}
+
+function InitPcScreen(){
+    console.log('hi pc');
+}
+
+function InitMobileScreen(){
+    console.log('hi mobile');
 }

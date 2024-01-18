@@ -211,11 +211,6 @@ header > div > .interact > .interact-lMenu{
     overflow: hidden;
 }
 
-.introduce > div{
-    display: flex;
-    align-items: center;
-}
-
 .introduce-l{
     display: flex;
     flex-direction: column;
@@ -249,8 +244,9 @@ header > div > .interact > .interact-lMenu{
 }
 
 .main-section{
-    padding-top: 80px;
+    margin-top: 80px;
     background-color: #fff;
+    padding: 0 20px;
 }
 
 .section-head-l{
@@ -422,7 +418,6 @@ button.loading{
     margin-top: 40px;
     width: 100%;
     height: 560px;
-    background-color: #000;
 }
 
 .hoduhouse-subscribe{
@@ -456,9 +451,16 @@ button.loading{
     word-wrap: break-word
 }
 
-.nav-subscribe-r > .email-wrap{
+.nav-subscribe-r{
     width: 530px;
-    padding: 5px 6px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-subscribe-r > .email-wrap{
+    flex-basis: 100%;
+    flex-shrink: 0;
+    padding: 20px 6px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -485,7 +487,10 @@ button.loading{
     word-wrap: break-word
 }
 
-.nav-subscribe-r > .email-wrap > #btn_subscribe{
+.nav-subscribe-r > #btn_subscribe{
+    position: relative;
+    right: 140px;
+    height: fit-content;
     padding: 15px 29px;
     background-color: #D97652;
     color: #fff;
@@ -522,13 +527,13 @@ body > footer > .frame{
     justify-content: space-between;
 }
 
-body > footer > .frame > .family-sites{
+body > footer > .frame .family-sites{
     display: flex;
     align-items: center;
     column-gap: 20px;
 }
 
-body > footer > .frame > .family-sites > button{
+body > footer > .frame .family-sites > button{
     padding: 9px;
     border-radius: 50%;
     background-color: #F29D52;
@@ -637,5 +642,237 @@ body > footer > .frame > .family-sites > button{
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+
+/* 미디어 쿼리 */
+@media (max-width: 391px) {
+    .pc, .pc *{
+        display: none;
+    }
+
+    .frame{
+        width: 100%;
+    }
+    
+    .frame-flex-sb{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body > header > div{
+        padding: 0 20px;
+    }
+
+    h1{
+        color: black;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 30px;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    .introduce{
+        padding: 0 20px;
+        width: initial;
+    }
+
+    .introduce-l{
+        padding-top: 116px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .introduce-l > h3{
+        width: 270px;
+        color: black;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        word-wrap: break-word
+    }
+
+    .introduce-r{
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .introduce-r > img{
+        width: 197px;
+        height: 422px;
+        margin-bottom: -65px;
+    }
+
+    .main-section-head{
+        width: initial;
+        padding: 0 20px;
+    }
+
+    .section-head-l{
+        width: 326px;
+        height: 190px;
+    }
+
+    .section-head-l > img{
+        height: 190px;
+        border-radius: 18px;
+    }
+
+    .section-head-r{
+        margin-top: 40px;
+        margin-left: 0;
+    }
+
+    .section-head-r > h2{
+        color: black;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 30px;
+        word-wrap: break-word
+    }
+
+    .section-head-r > h3{
+        color: black;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        word-wrap: break-word
+    }
+    
+    .main-section-showmore{
+        margin-top: 60px;
+    }
+
+    header.showmore > h2{
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    header.showmore > h3{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    ul.showmore{
+        margin-top: 40px;
+        grid-template-rows: repeat(auto-fill, 326px);
+        gap: 32px;
+        place-items: center;
+    }
+
+    ul.showmore > li{
+        width: 326px;
+        height: 326px;
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    ul.showmore > li > img{
+        width: 326px;
+        height: 326px;
+        object-fit: cover;
+    }
+
+    .main-section-showmore > hr{
+        margin-top: 60px;
+    }
+
+    .main-section-hoduhouse > .frame > h2{
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    .main-section-hoduhouse > .frame > #hoduhouse-map{
+        margin-top: 20px;
+        width: 100%;
+        height: 145px;
+    }
+
+    .hoduhouse-subscribe{
+        bottom: -360px;
+        border-radius: 18px;
+    }
+
+    .hoduhouse-subscribe > div{
+        padding: 36px 32px;
+        flex-direction: column;
+    }
+
+    .hoduhouse-subscribe > div > .nav-subscribe-l > h2{
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .hoduhouse-subscribe > div > .nav-subscribe-l > h3{
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .nav-subscribe-r{
+        margin-top: 30px;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-content: center;
+    }
+
+    .nav-subscribe-r > .email-wrap{
+        width: 100%;
+    }
+
+    .nav-subscribe-r > #btn_subscribe{
+        margin-top: 20px;
+        position: inherit;
+    }
+
+    .main-section-footerarticle{
+        margin-top: 315px;
+        height: 240px;
+    }
+
+    .main-section-footerarticle > div > img{
+        height: 240px;
+    }
+
+    body > footer{
+        padding: 30px 20px;
+        justify-content: space-between;
+    }
+
+    footer.mobile > .frame > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    body > footer > .frame div > button{
+        padding: 7px;
+    }
+
+    body > footer > .frame div > button > img{
+        width: 18px;
+        height: 18px;
+    }
+
+    body > footer > .frame .family-sites{
+        margin-top: 58px;
+        column-gap: 16px;
+    }
+
+    body > footer > .frame > .footer-rside{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 391.01px){
+    .mobile *{
+        display: none;
     }
 }
