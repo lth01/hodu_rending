@@ -21,6 +21,7 @@ window.onload = function(){
     // 기본 이미지 로딩
     appendImages(6);
 
+    //카카오 맵로딩
     loadMap();
 
     //이벤트 바인딩

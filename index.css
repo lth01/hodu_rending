@@ -55,9 +55,7 @@ button{
 /* reset css end */
 
 /* hodu css start */
-
 /* font import */
-
 @font-face {
     font-family: 'Pretendard';
     src: url('./font/Pretendard-Regular.woff') format('woff');
@@ -121,8 +119,10 @@ button{
     font-style: normal;
 }
 
+/* 공통  css start */
 *{
     font-family: Pretendard;
+    box-sizing: border-box;
 }
 
 html,
@@ -139,8 +139,11 @@ button{
 .frame{
     width: 1280px;
 }
+/* 공통 css end */
 
-.frame-flex-sb{
+.introduce > .frame,
+.main-section > .main-section-head > .frame
+{
     display: flex;
     justify-content: space-between;
 }
@@ -424,25 +427,22 @@ button.loading{
     position: absolute;
     bottom: -140px;
     background-color: #263140;
-    border-radius: 30px;
-}
-
-.hoduhouse-subscribe > div{
-    padding: 58px 50px;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 58px 50px;
+    border-radius: 30px;
 }
 
-.hoduhouse-subscribe > div > .nav-subscribe-l > h2{
+.hoduhouse-subscribe > .nav-subscribe-l > h2{
     font-size: 36px;
     font-weight: 700;
     line-height: 45px;
     word-wrap: break-word;
 }
 
-.hoduhouse-subscribe > div > .nav-subscribe-l > h3{
+.hoduhouse-subscribe > .nav-subscribe-l > h3{
     margin-top: 18px;
     color: #F2E9D8;
     font-size: 14px;
@@ -656,7 +656,8 @@ body > footer > .frame .family-sites > button{
         width: 100%;
     }
     
-    .frame-flex-sb{
+    .introduce > .frame,
+    .main-section > .main-section-head > .frame{
         flex-direction: column;
         align-items: center;
     }
@@ -666,11 +667,8 @@ body > footer > .frame .family-sites > button{
     }
 
     h1{
-        color: black;
         font-size: 24px;
-        font-weight: 700;
         line-height: 30px;
-        word-wrap: break-word;
         text-align: center;
     }
 
@@ -687,11 +685,9 @@ body > footer > .frame .family-sites > button{
 
     .introduce-l > h3{
         width: 270px;
-        color: black;
         font-size: 14px;
         font-weight: 400;
         line-height: 18px;
-        word-wrap: break-word
     }
 
     .introduce-r{
@@ -727,19 +723,8 @@ body > footer > .frame .family-sites > button{
     }
 
     .section-head-r > h2{
-        color: black;
         font-size: 24px;
-        font-weight: 700;
         line-height: 30px;
-        word-wrap: break-word
-    }
-
-    .section-head-r > h3{
-        color: black;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 20px;
-        word-wrap: break-word
     }
     
     .main-section-showmore{
@@ -795,19 +780,16 @@ body > footer > .frame .family-sites > button{
     .hoduhouse-subscribe{
         bottom: -360px;
         border-radius: 18px;
-    }
-
-    .hoduhouse-subscribe > div{
         padding: 36px 32px;
         flex-direction: column;
     }
 
-    .hoduhouse-subscribe > div > .nav-subscribe-l > h2{
+    .hoduhouse-subscribe > .nav-subscribe-l > h2{
         font-size: 24px;
         line-height: 30px;
     }
 
-    .hoduhouse-subscribe > div > .nav-subscribe-l > h3{
+    .hoduhouse-subscribe > .nav-subscribe-l > h3{
         font-size: 14px;
         line-height: 18px;
     }
@@ -905,6 +887,7 @@ body > footer > .frame .family-sites > button{
 }
 
 @media (min-width: 391.01px){
+    .mobile,
     .mobile *{
         display: none;
     }
