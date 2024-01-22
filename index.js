@@ -1,10 +1,12 @@
 let fetchTick;
-const btn_LoadingClass = "loading";
-const span_LoadingClass = "loader";
+let infMode;
+const observeEls = [];
+const observer = new IntersectionObserver(handleScroll, {threshold: 0.1});
 
 window.onload = function(){
     // 공통버튼
     const btn_morehodu = document.getElementById('btn_morehodu');
+    const btn_infScroll = document.getElementById('btn_infscroll');
     const btn_subscribe = document.getElementById('btn_subscribe');
     const btn_arrowUp = document.getElementById('btn_arrowUp');
     // header 기능 미개발 버튼
@@ -27,6 +29,8 @@ window.onload = function(){
     //이벤트 바인딩
     btn_morehodu?.addEventListener('click', () =>{appendImages(3)});
 
+    btn_infScroll?.addEventListener('click', () =>{toggleInfScroll(btn_infScroll)});
+
     btn_subscribe?.addEventListener('click', openSubModal)
 
     btns_download.forEach((el)=>{
@@ -34,7 +38,9 @@ window.onload = function(){
     });
 
     //이벤트 바인딩 - 화면 상단이동 버튼 포지션 조절
-    bindScrollArrowUpEvent(document.querySelector('.main-section-footerarticle'), togglePosArrowBtn);
+    // bindScrollArrowUpEvent(document.querySelector('.main-section-footerarticle'), togglePosArrowBtn);
+    InitBindScroll();
+    
 
     //이벤트 바인딩 - 화면 상단이동 버튼
     btn_arrowUp?.addEventListener('click', () =>{
@@ -62,13 +68,14 @@ window.onload = function(){
 
 }
 
-function bindScrollArrowUpEvent(el = document.querySelector('.main-section-footerarticle'), callback){
-    const option = {
-        threshold: 0.3 
-    };
-    const observer = new IntersectionObserver(callback ,option);
+function InitBindScroll(){
+    // 관찰 목록 추가
+    observeEls.push(document.querySelector('.main-section-hoduhouse'));
+    observeEls.push(document.querySelector('.main-section-footerarticle'));
 
-    observer.observe(el);
+    observeEls.forEach(el =>{
+        el? observer.observe(el) : '';
+    });
 }
 
 async function fetchImages(count = 3){
@@ -95,10 +102,9 @@ async function fetchImages(count = 3){
 }
 
 async function appendImages(count){
-    const btn_morehodu = document.getElementById('btn_morehodu');
     const ulEl = document.querySelector('ul.showmore');
 
-    addProgCssBtn(btn_morehodu);
+    addLoadingBar();
 
     (await fetchImages(count || 6) || []).forEach(data => {
         const url = window.URL.createObjectURL(data);
@@ -109,12 +115,12 @@ async function appendImages(count){
         ulEl.appendChild(liEl);
     });
 
-    removeProgCssBtn(btn_morehodu);
+    removeLoadingBar();
 }
 
 async function downRandCat(btnEl){
     if(!btnEl) return ;
-    addProgCssBtn(btnEl);
+    addLoadingBar(btnEl);
 
     (await fetchImages(1) || []).forEach(data =>{
         //이미지 다운로드 코드
@@ -127,7 +133,7 @@ async function downRandCat(btnEl){
         window.URL.revokeObjectURL(url);
     });
 
-    removeProgCssBtn(btnEl);
+    removeLoadingBar();
 }
 
 function loadMap(){
@@ -151,7 +157,7 @@ function openSubModal(){
     //호환성
     if("content" in document.createElement("template")){
         // template 코드 clone
-        const template = document.getElementById('hodu-modal');
+        const template = document.getElementById('hodu-modal-subscribe');
         const modalFrag = template.content.cloneNode(true);
         const modalWrap = modalFrag.querySelector('.modal-wrap');
 
@@ -202,8 +208,56 @@ function pageRefresh(){
     location.href = location.href;
 }
 
-function togglePosArrowBtn(entries, observe){
-    const isInterSecting = entries[0].isIntersecting;
+function toggleInfScroll(btn_infScroll){
+    if(!btn_infScroll) return ;
+
+    infMode = infMode ? false : true;
+
+    btn_infScroll.innerText = infMode ? "Stop Scroll" : "Show Cats Infinity";
+}
+
+function addLoadingBar(){
+    // 이미 모달창이 있을경우 열릴 필요 x
+    if(document.querySelector('.modal-wrap')) return ;
+    //호환성
+    if("content" in document.createElement("template")){
+        //template clone
+        const template = document.getElementById('hodu-modal-loading');
+        const modalFrag = template.content.cloneNode(true);
+        const modalWrap = modalFrag.querySelector('.modal-wrap');
+
+        document.body.style['overflow'] = 'hidden';
+
+        document.body.appendChild(modalWrap);
+    }
+}
+
+function removeLoadingBar(){
+    document.body.style['overflow'] = 'auto';
+
+    closeModal();
+}
+
+function handleScroll(entries, observe){
+    // 성능최적화 위한 trick
+    observeEls.forEach(el =>{
+         entries.forEach(entry =>{
+            if(el !== entry.target) return ;
+            // 화면상 위부터 아래로
+            if(el.classList.contains('main-section-hoduhouse')){
+                infScrollLoad(entry);
+            }
+
+            if(el.classList.contains('main-section-footerarticle')){
+                togglePosArrowBtn(entry);
+            }
+        });
+    });
+}
+
+// 스크롤 이벤트 콜백들
+function togglePosArrowBtn(entry){
+    const isInterSecting = entry.isIntersecting;
     const wrap_arrowBtn = document.querySelector('.nav-rightaside');
 
     isInterSecting ? 
@@ -211,15 +265,9 @@ function togglePosArrowBtn(entries, observe){
     wrap_arrowBtn.classList.remove('posUp');
 }
 
-function addProgCssBtn(btnEl){
-    const loadSpan = document.createElement('span');
-    loadSpan.classList.add(span_LoadingClass);
-    btnEl.classList.add(btn_LoadingClass);
-    btnEl.appendChild(loadSpan);
-}
+function infScrollLoad(entry){
+    const isInterSecting = entry.isIntersecting;
 
-function removeProgCssBtn(btnEl){
-   const loadSpan = btnEl.querySelector(`.${span_LoadingClass}`);
-   btnEl.classList.remove(btn_LoadingClass);
-   btnEl.removeChild(loadSpan);
+    isInterSecting && infMode? 
+    appendImages(null, document.getElementById('btn_infscroll')) : '';
 }

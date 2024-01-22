@@ -351,43 +351,19 @@ footer.showmore > h3{
     word-wrap: break-word;
 }
 
-footer.showmore > #btn_morehodu{
-    margin-top: 28px;
+footer.showmore > button{
     padding: 15px 29px;
     background-color: #D97652;
-    border-radius: 40px;
     color: #fff;
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
-}
-
-button > .loader{
-    display: none;
-}
-
-button.loading > span:first-child{
-    display: none;
-}
-
-button.loading > .loader
-{
-    width: 24px;
-    height: 24px;
-    border: 5px solid #FFF;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    box-sizing: border-box;
-    display: inline-block;
-    animation: rotation 1s linear infinite;
+    margin-top: 28px;
+    border-radius: 40px;
 }
 
 button.btn_download.loading > .loader{
     margin: -7.5px 0;
-}
-
-button.loading{
-    color: #D97652;
 }
 
 .main-section-showmore > hr{
@@ -542,7 +518,7 @@ body > footer > .frame .family-sites > button{
 /* 모달창 */
 .modal-wrap{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0;
     display: flex;
@@ -552,7 +528,7 @@ body > footer > .frame .family-sites > button{
     z-index: 10;
 }
 
-.modal{
+.modal-subscribe{
     width: 600px;
     background-image: url('./img/modal-bgi.png');
     background-repeat: no-repeat;
@@ -564,7 +540,7 @@ body > footer > .frame .family-sites > button{
     align-items: center;
 }
 
-.modal > h2{
+.modal-subscribe > h2{
     margin-top: 24px;
     color: #D97652;
     font-size: 36px;
@@ -573,7 +549,7 @@ body > footer > .frame .family-sites > button{
     word-wrap: break-word
 }
 
-.modal > h3{
+.modal-subscribe > h3{
     margin-top: 12px;
     color: black;
     font-size: 14px;
@@ -582,7 +558,7 @@ body > footer > .frame .family-sites > button{
     word-wrap: break-word
 }
 
-.modal > #btn_modalClose{
+.modal-subscribe > #btn_modalClose{
     margin-top: 38px;
     padding: 15px 29px;
     color: white;
@@ -593,6 +569,52 @@ body > footer > .frame .family-sites > button{
     background-color: #D97652;
     border-radius: 40px;
 }
+
+.modal-loading{
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    color: #D97652;
+    border-radius: 10%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.modal-loading > div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+
+.modal-loading > div > .loading-circle{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(#fff 50%, #D97652);
+    animation: rotation 1s infinite;
+}
+
+.modal-loading > .loading-text{
+    background-color: #fff;
+    font-size: 20px;
+    z-index: 10;
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+/* 모달창 종료 */
 
 .logo{
     cursor: pointer;
@@ -644,7 +666,6 @@ body > footer > .frame .family-sites > button{
         transform: rotate(360deg);
     }
 }
-
 
 /* 미디어 쿼리 */
 @media (max-width: 391px) {

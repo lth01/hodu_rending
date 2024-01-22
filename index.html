@@ -14,12 +14,12 @@
             </div>
             <div class="interact">
                 <div class="interact-lMenu">
-                    <button class="btn_home"><span>Home</span></button>
-                    <button class="btn_about"><span>About</span></button>
-                    <button class="btn_support"><span>Support</span></button>
+                    <button class="btn_home">Home</button>
+                    <button class="btn_about">About</button>
+                    <button class="btn_support">Support</button>
                 </div>
                 <div class="interact-rMenu">
-                   <button class="btn_download"><span>Download</span></button> 
+                   <button class="btn_download">Download</button> 
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                     </h1>
                     <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut eveniet libero dolorum, minus corporis aperiam, voluptas nulla animi error repellendus? Quo corrupti ab voluptatem blanditiis. Cum odit quibusdam facere.
                     Quis, cupiditate vel, incidunt id architecto animi quod dolorem, nam ullam similique libero? Aspernatur architecto perspiciatis quaerat debitis. Dolores possimus aut unde in quos eveniet quidem reiciendis, est laudantium nobis.</h3>
-                    <button class="btn_download"><span>Download</span></button>
+                    <button class="btn_download">Download</button>
                 </aside>
                 <aside class="introduce-r">
                     <img src="./img/introduce-hodu.png" alt="소개섹션_호두이미지">
@@ -86,7 +86,8 @@
                     </ul>
                     <footer class="showmore">
                         <h3>Continue exploring HODU</h3>
-                        <button id="btn_morehodu"><span>Show more</span></button>
+                        <button id="btn_morehodu">Show more</button>
+                        <button id="btn_infscroll">Show Cats Infinity</button>
                     </footer>
                </div>
                 <hr class="frame"/>
@@ -111,7 +112,7 @@
                                 <input type="email" id="tBx_email" placeholder="Enter your e-mail address"/>
                             </div>
                         </div>
-                        <button id="btn_subscribe"><span>subscribe</span></button>
+                        <button id="btn_subscribe">subscribe</button>
                     </aside>
                </nav>
            </article>
@@ -167,10 +168,10 @@
                 </div>
             </div>
             <div class="footer-rside">
-                    <button class="btn_home"><span>Home</span></button>
-                    <button class="btn_about"><span>About</span></button>
-                    <button class="btn_support"><span>Support</span></button>
-                    <button class="btn_policy"><span>Terms of Use</span></button>
+                    <button class="btn_home">Home</button>
+                    <button class="btn_about">About</button>
+                    <button class="btn_support">Support</button>
+                    <button class="btn_policy">Terms of Use</button>
             </div>
         </div>
     </footer>
@@ -185,21 +186,35 @@
             </button>
         </header>
         <section class="accordian-menus">
-            <button class="btn_home"><span>Home</span></button>
-            <button class="btn_about"><span>About</span></button>
-            <button class="btn_support"><span>Support</span></button>
-            <button class="btn_download"><span>Download</span></button> 
+            <button class="btn_home">Home</button>
+            <button class="btn_about">About</button>
+            <button class="btn_support">Support</button>
+            <button class="btn_download">Download</button> 
         </section>
     </aside>
+
+    
+
 </body>
 
-<template id="hodu-modal">
+<template id="hodu-modal-subscribe">
     <div class="modal-wrap">
-        <section class="modal">
+        <section class="modal-subscribe">
             <img src="./img/modal-hoduface.png" width="112px" alt="모달창_호두얼굴">
             <h2>Thank You!</h2>
             <h3>Lorem Ipsum is simply dummy text of the printing industry.</h3>
-            <button id="btn_modalClose"><span>OK! I Love HODU</span></button>
+            <button id="btn_modalClose">OK! I Love HODU</button>
+        </section>
+    </div>
+</template>
+
+<template id="hodu-modal-loading">
+    <div class="modal-wrap">
+        <section class="modal-loading">
+            <div>
+                <div class="loading-circle"></div>       
+            </div>
+            <span class="loading-text">loading..</span>
         </section>
     </div>
 </template>
